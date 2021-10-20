@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<!--  <script type="text/javascript" th:src ="@{/js/actions.js}"></script> -->
+ <style >
+  .container
+    {
+       
+        border: solid black;
+        border-radius: 5px;
+        margin-right: 150px;
+        margin-left: 150px;
+        padding: 10px;
+        padding-right: 10px;
+    }
+    </style>
+</head>
+<body>
+<center><h1>User Updation Form</h1></center>
+<form action="#" th:action="@{/saveafterupdate}" th:object="${users}" method="post">
+<div class="container" >
+
+<!-- <input type="hidden" th:field="*{email}"> -->
+
+<label>Name :</label>
+<input type="text" th:field="*{username}" placeholder="Enter Your Name here" class="form-control mb-4 col-6" required>
+
+<label>Age :</label>
+<input type="number" th:field="*{age}" placeholder="Enter Your Age" class="form-control mb-4 col-6" required>
+
+<label>Blood-Group :</label>
+<input type="text" th:field="*{blood_group}" placeholder="Enter Your Blood Group" class="form-control mb-4 col-6" required>
+
+<!-- <label>Email-Id :</label> -->
+<input type="hidden" th:field="*{email}" placeholder="Once entered email cannot be updated" class="form-control mb-4 col-6" readonly>
+
+<!-- <label>Set-Password :</label> -->
+<input type="hidden" th:field="*{password}" placeholder="Set Your Password" class="form-control mb-4 col-6" >
+
+<label>Location :</label>
+<input type="text" th:field="*{location}" placeholder="Enter Your Location" class="form-control mb-4 col-6" required>
+
+<label>Mobile-Number :</label>
+<input type="text" th:field="*{mobile}" placeholder="Enter Your Mobile Number" class="form-control mb-4 col-6" required>
+
+<label>Gender :</label>
+<select th:field="*{gender}">
+    <option th:value="'Male'" th:text="Male"></option>
+    <option th:value="'Female'" th:text="Female"></option>
+</select>
+<br>
+<br>
+       <label>Want to denote the blood :</label> -->
+   <div class="gender-details">
+         <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" th:field="*{available}" id="option1" th:value="Yes">
+        <label class="form-check-label" for="option1">Yes</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" th:field="*{available}" id="option2" th:value="No">
+        <label class="form-check-label" for="option2">No</label>
+    </div>
+
+<button type="submit" class="btn btn-info col-2">Update-User</button>
+
+</form>
+
+
+</body>
+</html>
